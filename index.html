@@ -15,16 +15,89 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
     
+    <style>
+    body {
+    animation: image 10s infinite alternate;
+}
+    @keyframes image {
+    0%{
+background-color:blue;
+}
+25%{
+    background-color:red;
+}
+50%{
+    background-color:green;
+}
+75%{
+
+    background-color:pink;
+}
+100%{
+    background-color:yellow;
+    }
+  }  
+    
+    </style>
 </head>
 <body>
-<!-- Html -->
-    
-<div class="container">
-  <h1>Min nettside</h1>
-  <p>Dette er min nettside i Informasjons-teknolog, hvor jeg kommer til å legge ut oppgavene mine</p> 
-</div>
-    
- 
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Objekter</h1>
+        </div>
 
+        <div class="row">
+            <div class="col-sm-6">
+                <p>Navn: <input type="text" id="navn"> </p>
+                <p>Alder: <input type="number" id="alder"></p>
+                <p><input type="submit" value="Legg inn" id="sendInn"> <input type="button" value="Skriv ut alle" id="skrivUt"></p>
+            </div>
+            <div class="col-sm-6">
+                <div id="utskrift"></div>
+            </div>
+        </div>
+    </div>
+    
 </body>
+    
+<script>
+    
+    var personer = [];
+    var navn, alder;
+    
+    class person{
+        constructor(navn, alder){
+            this.navn = navn;
+            this.alder = alder;
+        }
+                
+    }
+    
+    function leggInn(){
+        navn = document.getElementById("navn");
+        alder = document.getElementById("alder");
+        
+        console.log(navn.value);
+        console.log(alder.value);
+        
+        personer.push(new person(navn.value, alder.value));
+        
+        navn.value = "";
+        alder.value= "";
+    }
+    
+    function skrivUt(){
+        for(i = 0; i < personer.length; i++){
+            document.getElementById("utskrift").innerHTML += personer[i].navn + " " + personer[i].alder + "<br>";
+        }
+        
+    }
+    
+    document.getElementById("sendInn").addEventListener("click", leggInn);
+    document.getElementById("skrivUt").addEventListener("click", skrivUt);
+        
+    
+    
+</script>
+
 </html>
