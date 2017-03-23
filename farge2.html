@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+</head>
+
+
+<body>
+
+<ul id="colors">
+    <li id="yellow">Yellow</li>
+    <li id="orange">Orange</li>
+    <li id="red">Red</li>
+    <li id="blue">Blue</li>
+    <li id="black">Black</li>
+    <li id="white">White</li>
+</ul>
+    
+    
+<script>
+    
+    var colors = document.getElementById('colors');
+
+colors.addEventListener('click', function(e) {
+    var el = e.target,
+       color = el.id;
+
+    document.documentElement.style.backgroundColor = color;
+});
+
+
+</script>
+
+</body>
+
+
+</html>
